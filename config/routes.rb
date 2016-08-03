@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get 'dashboard/hello'
 
-  get 'users/create'
+  #users
+    get 'register' => 'users#new', as: :new_user
+    post 'users' => 'users#create', as: :create_user
+    get 'users' => 'users#index', as: :users
+    get 'users/:id' => 'users#profile', as: :user
+    get 'users/update' =>'users#update', as: :update_user
+    patch 'users' => 'users#update'
+    put 'users' => 'users#update'
 
-  get 'users/index'
-
-  get 'users/show'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root 'dashboard#hello'
 end
