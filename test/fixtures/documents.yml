@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  attorney_notes: MyText
+  client_notes: MyText
+  paralegal_notes: MyText
+  status: 
+  date: 2016-08-03
+  year: 
+  attachment: 
+
+two:
+  title: MyString
+  description: MyString
+  attorney_notes: MyText
+  client_notes: MyText
+  paralegal_notes: MyText
+  status: 
+  date: 2016-08-03
+  year: 
+  attachment: 
