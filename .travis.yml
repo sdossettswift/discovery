@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.3.0
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: WhhpOxwZYAVyosRaN8VUuqUMI297lbGiDrVBDdluWs80O7NwTFmwYTD0lWzTZ5dbtX/aH0VtXEVuesFL9c5e1ObmrPUOMkqpivZwBBnTekir7j/SboMgWA+5LZFOsb7aVcx78+TVr2bdStYVgCoVVUwREgrgw4LYgyl6S5RD5ODFF9ZVwTceshaoSvCl/sq2qrQZxX49XEioNeegyXx2oqwvvOaqTHjusiSFE6XwbTXC6qCvWBopadYpZhAqbnMlDpVWUspSqEIxifGj91SmKihcYCnCN7x4U1Uolh2ulyOWPWBMRQVjHeawmvNQSigOCY4MeSlk03Kf3XDjAH7SaPkhrvrwmdMqTS+Lxc2GJ6hw20Z8EYIj9Tj/uFqpfT+M74fbjMqADLN5aYm6g8GmVOO+6gNYM2IV5shWMx8LTdxn96p9d0So+2SFxh+o1QOo8QWPbTh9uPtrKiRKPiqzjikk65gz8OosxOSdiN5qLiMxk0EhKH4nlwGSnXvsH0h1PYfIUAvA0RZhlBBimCd2aXWbe735xgXZKjkLE5NUdg78FaERsOC0T8e1fuUa9LtdA/mDcu8AkSkZeB63sOZ+KWsfWrtpnm6k9SLHimfv6HtmApe/tfDevBox0407ISRBU5oChEsp+SuUoT05MYxufSVUwtI7PGUkhuKvOLqisrk=
+  app: swift-discovery
+  on:
+    repo: sdossettswift/discovery
+  run:
+    - "rake db:migrate"
