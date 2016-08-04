@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'roles/new'
 
   get 'roles/create'
@@ -22,6 +23,15 @@ Rails.application.routes.draw do
     post 'sign_in' => 'sessions#create'
     delete 'sign_in' => 'sessions#delete', as: :end_session
     get 'sign_out' => 'sessions#delete', as: :sign_out
+
+    #matters
+      get 'matters/new' => 'matters#new', as: :new_matter
+      post 'matters' => 'matters#create', as: :creat_matter
+      get 'matters' => 'matters#index', as: :matters
+      get 'matters/:id' => 'matters#profile', as: :matter
+      get 'matters/update' =>'matters#update', as: :update_matter
+      patch 'matters' => 'matters#update'
+      put 'matters' => 'matters#update'
 
 
     root 'dashboard#hello'

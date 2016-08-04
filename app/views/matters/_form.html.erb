@@ -1,0 +1,24 @@
+
+<% if @matter.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @matter.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<%=simple_form_for @matter do |f|%>
+  <%= f.input :kind%>
+  <%= f.input :description%>
+  <%= f.input :year%>
+  <%= f.input :cause_number%>
+  <%= f.input :court%>
+  <%= f.input :cause_number%>
+  <%= f.input :judge%>
+  <%= f.input :opposing_party%>
+  <%= f.input :opposing_counsel%>
+  <%= f.input :status%>
+  <%= f.association :users, label_method: :username, value_method: :id,  as: :check_boxes %>
+  <%= f.button :submit %>
+
+<% end %>
