@@ -1,4 +1,7 @@
 require "test_helper"
+require "capybara/rspec/matchers"
+require "minitest/rails/capybara"
+
 
 class RegisteredUserCanSignInTest < Capybara::Rails::TestCase
   # test "sanity" do
