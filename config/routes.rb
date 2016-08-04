@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'register' => 'users#new', as: :new_user
     post 'users' => 'users#create', as: :create_user
     get 'users' => 'users#index', as: :users
-    get 'users/:id' => 'users#profile', as: :user
+    get 'users/:id' => 'users#show', as: :user
     get 'users/update' =>'users#update', as: :update_user
     patch 'users' => 'users#update'
     put 'users' => 'users#update'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get 'user_matters/new' => 'user_matters#new', as: :new_user_matter
       post 'user_matters' => 'user_matters#create', as: :create_user_matter
       get 'user_matters' => 'user_matters#index', as: :user_matters
-      get 'user_matters/:id' => 'user_matters#profile', as: :user_matter
+      get 'user_matters/:id' => 'user_matters#show', as: :user_matter
       get 'user_matters/update' =>'user_matters#update', as: :update_user_matter
       patch 'user_matters' => 'user_matters#update'
       put 'user_matters' => 'user_matters#update'
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       get 'matters/new' => 'matters#new', as: :new_matter
       post 'matters' => 'matters#create', as: :create_matter
       get 'matters' => 'matters#index', as: :matters
-      get 'matters/:id' => 'matters#profile', as: :matter
+      get 'matters/:id' => 'matters#show', as: :matter
       get 'matters/update' =>'matters#update', as: :update_matter
       patch 'matters' => 'matters#update'
       put 'matters' => 'matters#update'
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       get 'documents/new' => 'documents#new', as: :new_document
       post 'documents' => 'documents#create', as: :create_document
       get 'documents' => 'documents#index', as: :documents
-      get 'documents/:id' => 'documents#profile', as: :document
+      get 'documents/:id' => 'documents#show', as: :document
       get 'documents/update' =>'documents#update', as: :update_document
       patch 'documents' => 'documents#update'
       put 'documents' => 'documents#update'

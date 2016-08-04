@@ -13,6 +13,6 @@
   <%= f.input :description%>
   <%= f.input :date,  include_blank: true%>
   <%= f.association :matter, label_method: :cause_number, value_method: :id%>
-  <%= f.attachment_field :document, as: :file, class: "form-control" %>
+  <%= f.attachment_field :document, as: :file %>
   <%= f.button :submit %>
 <% end %>

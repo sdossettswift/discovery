@@ -100,11 +100,11 @@
   <tbody>
     <% @documents.each do |document|%>
       <tr>
-      <td><%=document.id%> </td>
-      <td><%=document.status%> </td>
-      <td><%=document.date%></td>
-      <td><%=document.title%></td>
-      <td>Link Coming</td>
+        <td><%=document.id%> </td>
+        <td><%=document.status%> </td>
+        <td><%=document.date%></td>
+        <td><%=document.title%></td>
+        <td><%= link_to "See Detail", document_path(id: document.id) %></td>
       </tr>
     <%end%>
     </tr>
