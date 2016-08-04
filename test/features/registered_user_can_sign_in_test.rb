@@ -1,12 +1,15 @@
 require "test_helper"
-require "capybara/rspec/matchers"
-require "minitest/rails/capybara"
 
+class UserCanSignInTest < Capybara::Rails::TestCase
+  setup do
+   User.create! email: "example@example.com", username: "example", password: "example"
+ end
 
-class RegisteredUserCanSignInTest < Capybara::Rails::TestCase
-  # test "sanity" do
-  #   visit root_path
-  #   assert_content page, "Hello World"
-  #   refute_content page, "Goodbye All!"
-  # end
+  test "Can Sign In" do
+     visit sign_in_path
+     fill_in('Username', :with => 'example')
+     fill_in('Password', :with => 'example')
+     click_button('Sign In!')
+    assert_content ("Signed in!")
+  end
 end
