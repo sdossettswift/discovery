@@ -1,10 +1,71 @@
 <h1>Dashboard</h1>
-<p>Find me in app/views/dashboard/hello.html.erb</p>
 
-<h1>All Users</h1>
+<h5>LINKS</h5>
+  <ul>
+    <li><%= link_to "Create User", new_user_path%></li>
+    <li><%= link_to "Create Matter", new_matter_path%></li>
+    <li><%= link_to "Create UserMatter", new_user_matter_path%></li>
+  </ul>
 
-<h2>All Matters</h2>
-
+<h4>All Users</h4>
+  <table class="mdl-data-table mdl-js-data-table">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Username</th>
+        <th>Email</th>
+        <th>User ID </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+        <tr>
+        <td>  <%=user.username%> </td>
+        <td> <%=user.email%> </td>
+        <td> <%=user.id%></td>
+        </tr>
+      <%end%>
+      </tr>
+    </tbody>
+  </table>
 <h3>All User-Matters</h3>
+    <table class="mdl-data-table mdl-js-data-table">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">User</th>
+          <th>Matter</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_matters.each do |user_matter|%>
+          <tr>
+          <td>  <%=user_matter.matter_id%> </td>
+          <td> <%=user_matter.user_id%> </td>
+          <td> <%=user_matter.role%> </td>
+          </tr>
+        <%end%>
+        </tr>
+      </tbody>
+    </table>
+<h3>All Matters</h3>
+    <table class="mdl-data-table mdl-js-data-table">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Matter ID</th>
+          <th>Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @matters.each do |matter|%>
+          <tr>
+          <td>  <%=matter.id%> </td>
+          <td> <%=matter.cause_number%> </td>
+          <td> <%=matter.status%> </td>
+          </tr>
+        <%end%>
+        </tr>
+      </tbody>
+    </table>
 
 <h3>All Documents </h3>
