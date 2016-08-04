@@ -19,6 +19,6 @@ class MattersController < ApplicationController
   private
 
   def matter_params
-    params.require(:matter).permit(:user,:kind, :description, :year, :cause_number, :court, :judge, :opposing_party, :opposing_counsel, :status )
+    params.require(:matter).permit(:users,:kind, :description, :year, :cause_number, :court, :judge, :opposing_party, :opposing_counsel, :status, :user_ids => [] )
   end
 end
