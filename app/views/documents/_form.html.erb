@@ -1,0 +1,18 @@
+
+<% if @document.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @document.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<%=simple_form_for @document do |f|%>
+  <%= f.input :title%>
+  <%= f.input :status%>
+  <%= f.input :description%>
+  <%= f.input :date,  include_blank: true%>
+  <%= f.association :matter, label_method: :cause_number, value_method: :id%>
+  <%= f.attachment_field :document, as: :file %>
+  <%= f.button :submit %>
+<% end %>

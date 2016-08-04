@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804200957) do
-
+ActiveRecord::Schema.define(version: 20160804224446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160804200957) do
     t.integer  "year"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "document_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 20160804200957) do
     t.string   "status"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "refile_attachments", force: :cascade do |t|
+    t.integer  "oid",        null: false
+    t.string   "namespace",  null: false
+    t.datetime "created_at"
+    t.index ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
+    t.index ["oid"], name: "index_refile_attachments_on_oid", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|

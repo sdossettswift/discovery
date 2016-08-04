@@ -4,7 +4,7 @@ class Roles < ApplicationController
   end
 
   def create
-    @role = Roel.create(role_params)
+    @role = Role.create(role_params)
     if @role.save
 
     else

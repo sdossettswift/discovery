@@ -6,7 +6,7 @@ class UserMattersController < ApplicationController
   def create
     @user_matter = UserMatter.new(user_matter_params)
     if @user_matter.save
-      redirect_to root_path, notice: "UserMatter Created"
+      redirect_to root_path, notice: "User Matter Created"
     else
       render :new
     end
@@ -22,5 +22,6 @@ class UserMattersController < ApplicationController
 private
   def user_matter_params
     params.require(:user_matter).permit(:matter_id, :user_id)
+
   end
 end
