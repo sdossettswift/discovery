@@ -21,6 +21,11 @@ class UserMattersController < ApplicationController
 
 private
   def user_matter_params
+<<<<<<< HEAD
+    params.require(:user_matter).permit(:user_id, :matter_id, :role_id)
+
+=======
     params.require(:user_matter).permit(:matter_id, :user_id)
+>>>>>>> master
   end
 end
