@@ -1,6 +1,4 @@
 require "test_helper"
-require "capybara/rspec/matchers"
-require "minitest/rails/capybara"
 
 class UserCanRegisterTest < Capybara::Rails::TestCase
 
