@@ -3,6 +3,6 @@ class DashboardController < ApplicationController
     @users = User.all
     @matters = Matter.all
     @user_matters = UserMatter.all
-    
+    @roles = Role.all
   end
 end

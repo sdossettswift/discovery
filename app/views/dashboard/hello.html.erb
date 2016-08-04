@@ -11,17 +11,25 @@
   <table class="mdl-data-table mdl-js-data-table">
     <thead>
       <tr>
+        <th>User ID </th>
         <th class="mdl-data-table__cell--non-numeric">Username</th>
         <th>Email</th>
-        <th>User ID </th>
+        <th>First Name </th>
+        <th>Middle Name </th>
+        <th>Last Name </th>
+
       </tr>
     </thead>
     <tbody>
       <% @users.each do |user|%>
         <tr>
+        <td> <%=user.id%></td>
         <td>  <%=user.username%> </td>
         <td> <%=user.email%> </td>
-        <td> <%=user.id%></td>
+        <td> <%=user.first_name%> </td>
+        <td> <%=user.middle_name%> </td>
+        <td> <%=user.last_name%> </td>
+
         </tr>
       <%end%>
       </tr>
@@ -54,14 +62,24 @@
           <th class="mdl-data-table__cell--non-numeric">Matter ID</th>
           <th>Type</th>
           <th>Status</th>
+          <th>Kind</th>
+          <th>Opposing Party</th>
+          <th>Opposing Counsel</th>
+          <th>Court</th>
+          <th>Judge</th>
         </tr>
       </thead>
       <tbody>
         <% @matters.each do |matter|%>
           <tr>
-          <td>  <%=matter.id%> </td>
-          <td> <%=matter.cause_number%> </td>
-          <td> <%=matter.status%> </td>
+          <td><%=matter.id%> </td>
+          <td><%=matter.cause_number%> </td>
+          <td><%=matter.status%> </td>
+          <td><%=matter.kind%></td>
+          <td><%=matter.opposing_party%></td>
+          <td><%=matter.opposing_counsel%></td>
+          <td><%=matter.court%></td>
+          <td><%=matter.judge%></td>
           </tr>
         <%end%>
         </tr>
