@@ -1,0 +1,16 @@
+<div class="formcontainer">
+  <%= form_tag do %>
+
+    <div class="mdl-textfield mdl-js-textfield" contextmenu="" id="#formwrapper">
+      <%= label_tag :username %>
+      <%= text_field_tag :username, params[:username], class: "mdl-textfield__input" %><br />
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", class: "mdl-textfield__input" %>
+    </div>
+    <div class="form-button-wrapper">
+      <%= submit_tag "Sign In", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"%>
+      or
+      <%= link_to 'Sign Up', new_user_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+    </div>
+  <% end %>
+</div>

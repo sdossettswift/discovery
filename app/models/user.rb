@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :matters
-  belongs_to :firm
-  has_many :usermatters
+  has_and_belongs_to_many :matters
+  has_and_belongs_to_many :usermatters
+  has_and_belongs_to_many :role
   ROLE = ['Attorney', 'Client', 'Admin', 'Paralegal']
 
 end
