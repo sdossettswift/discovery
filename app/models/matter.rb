@@ -1,7 +1,10 @@
 class Matter < ApplicationRecord
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :user_matters
-  has_and_belongs_to_many :roles
+  has_many :user_matters
+  has_many :users, through: :user_matters
+  has_many :roles, through: :user_matters # how useful is this?
+
   has_many :documents
   has_many :events
+
+  validates :year, presence: true
 end

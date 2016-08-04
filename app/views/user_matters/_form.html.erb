@@ -4,8 +4,8 @@
 <h3>Select Case</h3>
 
 <%=simple_form_for @user_matter do |f|%>
-  <%= f.association :matters, label_method: :cause_number, value_method: :id, as: :check_boxes%>
-  <%= f.association :users, label_method: :username, value_method: :id,  as: :check_boxes %>
-  <%= f.association :roles,  as: :check_boxes%>
+  <%= f.association :matter, label_method: :cause_number, value_method: :id%>
+  <%= f.association :user, label_method: :username, value_method: :id %>
+  <%= f.association :role%>
   <%= f.button :submit%>
 <%end%>
