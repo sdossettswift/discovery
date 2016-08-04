@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'user_matters/new'
-
-  get 'user_matters/create'
-
-  get 'user_matters/update'
 
   get 'roles/new'
 
@@ -48,6 +43,14 @@ Rails.application.routes.draw do
       patch 'matters' => 'matters#update'
       put 'matters' => 'matters#update'
 
+    #documents
+      get 'documents/new' => 'documents#new', as: :new_document
+      post 'documents' => 'documents#create', as: :create_document
+      get 'documents' => 'documents#index', as: :documents
+      get 'documents/:id' => 'documents#profile', as: :document
+      get 'documents/update' =>'documents#update', as: :update_document
+      patch 'documents' => 'documents#update'
+      put 'documents' => 'documents#update'
 
 
     root 'dashboard#hello'
