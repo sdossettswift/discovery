@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Discovery</title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -25,8 +26,9 @@
       <%if @current_user%>
        <a class="mdl-navigation__link"><%= link_to "Add Event", new_event_path%></li>
        <a class="mdl-navigation__link"><%= link_to "Add Document", new_document_path%></li>
-       <a class="mdl-navigation__link"><%= link_to "Dashboard", dashboard_path%></li>
-      <a class="mdl-navigation__link"><%= link_to "Sign Out", sign_out_path%></li>
+        <a class="mdl-navigation__link"><%= link_to "Sign Out", sign_out_path%></li>
+        <a class="mdl-navigation__link"><%= link_to "Home", root_path%></li>
+
        <%else%>
        <a class="mdl-navigation__link"><%=link_to 'Sign In', sign_in_path%></li>
        <a class="mdl-navigation__link"><%=link_to 'Create Account', new_user_path%></li>

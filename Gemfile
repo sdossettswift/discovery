@@ -11,8 +11,10 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
- gem 'bcrypt', '~> 3.1.7'
- gem 'simple_form'
+gem 'bcrypt', '~> 3.1.7'
+gem 'simple_form'
+
+gem 'doorkeeper' #oauth
 
 
 
@@ -21,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'refile-postgres', '~> 1.4'
  gem "sinatra", github: "sinatra/sinatra", branch: "master"
  gem "rack-protection", github: "sinatra/rack-protection"
- 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
   gem 'minitest-rails'

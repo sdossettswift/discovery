@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  use_doorkeeper
 
 
   get 'roles/new'
@@ -52,6 +53,25 @@ Rails.application.routes.draw do
       patch 'documents' => 'documents#update'
       put 'documents' => 'documents#update'
 
+    #events
+    get 'events/timeline' => 'events#timeline', as: :timeline
+     post 'events' => 'events#create'
+     get 'events/new' => 'events#new', as: :new_event
+     get 'events/:id' => 'events#show', as: :event
+     get 'events/:id/edit' => 'events#edit', as: :edit_event
+     delete 'events/:id' => 'events#delete'
+     patch 'events/:id' => 'events#update'
+
+   #api_events
+    get 'api/events/new' => 'api/events#new'
+    post 'api/events' => 'api/events#create'
+    get 'api/events' => 'api/events#index'
+    get 'api/events/:id' => 'api/events#show'
+    patch 'api/events/:id' => 'api/events#update'
+    put 'api/events/:id' => 'api/events#update'
+    delete 'api/events/:id' => 'api/events#delete'
+
+    post 'api/registrations' => 'api/registrations#create'
 
     root 'dashboard#hello'
 end
