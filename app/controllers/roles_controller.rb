@@ -1,4 +1,8 @@
 class Roles < ApplicationController
+  before_action do
+    require_login!
+  end
+
   def new
     @role = Role.new
   end

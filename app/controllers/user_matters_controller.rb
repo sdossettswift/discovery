@@ -1,4 +1,8 @@
 class UserMattersController < ApplicationController
+  before_action do
+    require_login!
+  end
+
   def new
     @user_matter = UserMatter.new
   end

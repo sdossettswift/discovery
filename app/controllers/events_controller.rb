@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  before_action do
+    require_login!
+  end
+
   def new
     @event = Event.new
   end

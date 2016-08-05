@@ -1,4 +1,8 @@
 class DocumentsController < ApplicationController
+  before_action do
+    require_login!
+  end
+
   def new
     @document = Document.new
   end
