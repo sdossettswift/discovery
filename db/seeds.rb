@@ -6,10 +6,10 @@ User.create! email: "paralegal@example.com", username: "paralegal", password: "e
 User.create! email: "admin@example.com", username: "admin", password: "example"
 
 
-Matter.create! cause_number: "2015-201345"
-Matter.create! cause_number: "2016-031305"
-Matter.create! cause_number: "2016-201302"
-Matter.create! cause_number: "2016-921343"
+Matter.create! cause_number: "2015-201345", year: "2016"
+Matter.create! cause_number: "2016-031305", year: "2016"
+Matter.create! cause_number: "2016-201302", year: "2016"
+Matter.create! cause_number: "2016-921343", year: "2016"
 
 Role.create! name: "Attorney"
 Role.create! name: "Client"
