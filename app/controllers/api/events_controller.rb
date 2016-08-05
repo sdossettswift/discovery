@@ -1,11 +1,10 @@
 class Api::EventsController < ApplicationController
-  before_action :doorkeeper_authorize!
+  before_action :require_login!
+  protect_from_forgery with: :null_session
 
   before_action do
     request.format = :json
   end
-
- protect_from_forgery with: :null_session
 
   def new
     @event = Event.new
@@ -30,7 +29,7 @@ class Api::EventsController < ApplicationController
 end
 
   def index
-    @events= Event.all
+    @events = Event.all
   end
 
   def show
