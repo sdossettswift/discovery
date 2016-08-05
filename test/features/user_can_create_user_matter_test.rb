@@ -8,6 +8,10 @@ class UserCanCreateUserMatterTest < Capybara::Rails::TestCase
  end
 
   test "Can Create UserMatter" do
+    visit sign_in_path
+    fill_in('Username', :with => 'attorney1')
+    fill_in('Password', :with => 'example')
+    click_button('Sign In')
      visit new_user_matter_path
      select('12345678')
      select('attorney1')
