@@ -1,0 +1,27 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="formcontainer">
+    <%=simple_form_for @user do |f|%>
+      <div class="mdl-textfield mdl-js-textfield" contextmenu="" id="#formwrapper">
+        <%= f.input :username, class: "mdl-textfield__input"%>
+        <%= f.input :email, class: "mdl-textfield__input"%>
+        <%= f.input :first_name, class: "mdl-textfield__input"%>
+        <%= f.input :middle_name, class: "mdl-textfield__input"%>
+        <%= f.input :last_name, class: "mdl-textfield__input"%>
+        <%= f.input :maiden_name, class: "mdl-textfield__input"%></br>
+        <%= f.input :address1, class: "mdl-textfield__input"%>
+        <%= f.input :address2, class: "mdl-textfield__input"%>
+        <%= f.input :city, class: "mdl-textfield__input"%>
+        <%= f.input :state, class: "mdl-textfield__input"%>
+        <%= f.input :zip, class: "mdl-textfield__input"%>
+        <%= f.input :phone, class: "mdl-textfield__input"%></br>
+          <%= f.button :submit %>
+      </div>
+    <% end %>
+</div>

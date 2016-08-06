@@ -11,14 +11,15 @@ Rails.application.routes.draw do
 
   get 'firm/add'
 
+
   #users
     get 'register' => 'users#new', as: :new_user
     post 'users' => 'users#create', as: :create_user
     get 'users' => 'users#index', as: :users
     get 'users/:id' => 'users#show', as: :user
-    get 'users/update' =>'users#update', as: :update_user
-    patch 'users' => 'users#update'
-    put 'users' => 'users#update'
+    get 'users/:id/edit' =>'users#edit', as: :edit_user
+    patch 'users/:id' => 'users#update'
+    put 'users/:id' => 'users#update'
 
   #Sessions
     get 'sign_in' => 'sessions#new', as: :sign_in
@@ -31,27 +32,27 @@ Rails.application.routes.draw do
       post 'user_matters' => 'user_matters#create', as: :create_user_matter
       get 'user_matters' => 'user_matters#index', as: :user_matters
       get 'user_matters/:id' => 'user_matters#show', as: :user_matter
-      get 'user_matters/update' =>'user_matters#update', as: :update_user_matter
-      patch 'user_matters' => 'user_matters#update'
-      put 'user_matters' => 'user_matters#update'
+      get 'user_matters/:id/update' =>'user_matters#update', as: :update_user_matter
+      patch 'user_matters/:id' => 'user_matters#update'
+      put 'user_matters/:id' => 'user_matters#update'
 
     #matters
       get 'matters/new' => 'matters#new', as: :new_matter
       post 'matters' => 'matters#create', as: :create_matter
       get 'matters' => 'matters#index', as: :matters
       get 'matters/:id' => 'matters#show', as: :matter
-      get 'matters/update' =>'matters#update', as: :update_matter
-      patch 'matters' => 'matters#update'
-      put 'matters' => 'matters#update'
+      get 'matters/:id/edit' =>'matters#edit', as: :edit_matter
+      patch 'matters/:id' => 'matters#update'
+      put 'matters/:id' => 'matters#update'
 
     #documents
       get 'documents/new' => 'documents#new', as: :new_document
       post 'documents' => 'documents#create', as: :create_document
       get 'documents' => 'documents#index', as: :documents
       get 'documents/:id' => 'documents#show', as: :document
-      get 'documents/update' =>'documents#update', as: :update_document
-      patch 'documents' => 'documents#update'
-      put 'documents' => 'documents#update'
+      get 'documents/:id/edit' =>'documents#edit', as: :edit_document
+      patch 'documents/:id' => 'documents#update'
+      put 'documents/:id' => 'documents#update'
 
     #events
     get 'events/timeline' => 'events#timeline', as: :timeline
@@ -73,5 +74,6 @@ Rails.application.routes.draw do
 
     post 'api/registrations' => 'api/registrations#create'
 
-    root 'dashboard#hello'
+    root 'dashboard#welcome'
+    get 'dashboard' => 'dashboard#dashboard', as: :dashboard
 end

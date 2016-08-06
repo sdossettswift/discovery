@@ -25,10 +25,11 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
       <%if @current_user%>
-       <a class="mdl-navigation__link"><%= link_to "Add Event", new_event_path%></li>
-       <a class="mdl-navigation__link"><%= link_to "Add Document", new_document_path%></li>
-        <a class="mdl-navigation__link"><%= link_to "Sign Out", sign_out_path%></li>
         <a class="mdl-navigation__link"><%= link_to "Home", root_path%></li>
+       <a class="mdl-navigation__link"><%= link_to "Events", new_event_path%></li>
+       <a class="mdl-navigation__link"><%= link_to "Documents", new_document_path%></li>
+        <a class="mdl-navigation__link"><%= link_to "Sign Out", sign_out_path%></li>
+
 
        <%else%>
        <a class="mdl-navigation__link"><%=link_to 'Sign In', sign_in_path%></li>
@@ -38,15 +39,7 @@
       </nav>
     </div>
   </header>
-  <!-- <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Discovery</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div> -->
+
   <main class="mdl-layout__content">
     <div class="page-content">
       <%= yield %>

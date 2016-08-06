@@ -16,6 +16,7 @@ gem 'simple_form'
 
 gem 'doorkeeper' #oauth
 
+gem 'gravtastic'
 
 
  gem 'refile', github: "refile/refile", require: 'refile/rails'
