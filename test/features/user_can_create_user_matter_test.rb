@@ -16,6 +16,6 @@ class UserCanCreateUserMatterTest < Capybara::Rails::TestCase
      select('12345678')
      select('attorney1')
      click_button('Create User matter')
-     assert_content ("Dashboard")
+     assert_content ("User Matter Created")
   end
 end

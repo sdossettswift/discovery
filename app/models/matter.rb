@@ -5,6 +5,10 @@ class Matter < ApplicationRecord
 
   has_many :documents
   has_many :events
+  has_many :attorney_comments, through: :documents
+  has_many :client_comments, through: :documents
 
   validates :year, presence: true
+
+
 end

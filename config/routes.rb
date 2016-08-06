@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'client_comments/new'
+
+  get 'client_comments/create'
+
+  get 'client_comments/update'
+
+  get 'client_comments/edit'
+
   use_doorkeeper
 
 
@@ -53,6 +61,13 @@ Rails.application.routes.draw do
       get 'documents/:id/edit' =>'documents#edit', as: :edit_document
       patch 'documents/:id' => 'documents#update'
       put 'documents/:id' => 'documents#update'
+
+    resources :documents do
+      resources :client_comments
+      resources :attorney_comments
+      resources :law_office_comments
+    end
+
 
     #events
     get 'events/timeline' => 'events#timeline', as: :timeline

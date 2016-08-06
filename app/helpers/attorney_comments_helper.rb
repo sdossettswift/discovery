@@ -1,0 +1,2 @@
+module AttorneyCommentsHelper
+end

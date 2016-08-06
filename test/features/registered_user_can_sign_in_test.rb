@@ -10,6 +10,6 @@ class UserCanSignInTest < Capybara::Rails::TestCase
      fill_in('Username', :with => 'example')
      fill_in('Password', :with => 'example')
      click_button('Sign In')
-    assert_content ("Dashboard")
+    assert_content ("Signed in!")
   end
 end
