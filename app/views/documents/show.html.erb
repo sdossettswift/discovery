@@ -1,19 +1,32 @@
 <h1><%= @document.title%></h1>
 <iframe src="<%= attachment_url(@document, :document, format: 'pdf') %>" width="600" height="800"></iframe>
 
-<h4>Comments</h4>
+
+<h6>Client Comment:</h6>
 <%@document.client_comments.each do |client_comment|%>
   <%=client_comment.comment%>
 <%end%>
-
-<h2>Add A Comment</h2>
-
 <%= form_for([@document, @document.client_comments.build]) do |f| %>
-  <p>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </p>
-  <p>
+ <%= f.text_area :comment %>
     <%= f.submit %>
-  </p>
+<% end %>
+
+
+<h6>Attorney Comment:</h6>
+<%@document.attorney_comments.each do |attorney_comment|%>
+  <%=attorney_comment.comment%>
+<%end%>
+<%= form_for([@document, @document.attorney_comments.build]) do |f| %>
+ <%= f.text_area :comment %>
+    <%= f.submit %>
+<% end %>
+
+
+<h6>Law Office:</h6>
+<%@document.law_office_comments.each do |law_office_comment|%>
+  <%=law_office_comment.comment%>
+<%end%>
+<%= form_for([@document, @document.law_office_comments.build]) do |f| %>
+ <%= f.text_area :comment %>
+    <%= f.submit %>
 <% end %>

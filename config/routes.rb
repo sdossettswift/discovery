@@ -64,6 +64,8 @@ Rails.application.routes.draw do
 
     resources :documents do
       resources :client_comments
+      resources :attorney_comments
+      resources :law_office_comments
     end
 
 

@@ -9,4 +9,6 @@ class Matter < ApplicationRecord
   has_many :client_comments, through: :documents
 
   validates :year, presence: true
+
+
 end
