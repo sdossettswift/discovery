@@ -18,7 +18,7 @@ class UserCanCreateDocumentTest < Capybara::Rails::TestCase
     fill_in('Description', :with => '2015 Tax Return')
     select('12345678')
     click_button('Create Document')
-    assert_content ("Dashboard")
+    assert_content ("Document Created")
  end
 
 end

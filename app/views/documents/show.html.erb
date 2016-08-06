@@ -1,2 +1,19 @@
 <h1><%= @document.title%></h1>
 <iframe src="<%= attachment_url(@document, :document, format: 'pdf') %>" width="600" height="800"></iframe>
+
+<h4>Comments</h4>
+<%@document.client_comments.each do |client_comment|%>
+  <%=client_comment.comment%>
+<%end%>
+
+<h2>Add A Comment</h2>
+
+<%= form_for([@document, @document.client_comments.build]) do |f| %>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

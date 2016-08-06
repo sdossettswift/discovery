@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      redirect_to root_path, notice: "Document Created"
+      redirect_to documents_path, notice: "Document Created"
     else
       render :new
     end
@@ -20,18 +20,14 @@ class DocumentsController < ApplicationController
     @document = Document.find_by id: params[:id]
   end
 
-  def comment
-    @document = Document.find_by id: params[:id]
-  end
-
   def index
     @documents = Document.all
   end
 
   def show
     @document = Document.find_by id: params[:id]
-
   end
+
 
   private
 

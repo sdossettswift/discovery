@@ -9,6 +9,6 @@ class UserCanRegisterTest < Capybara::Rails::TestCase
      fill_in('Password', :with => '12345678')
      fill_in('Password confirmation', :with => '12345678')
      click_button('Create User')
-    assert_content ("Dashboard")
+    assert_content ("Welcome!")
   end
 end

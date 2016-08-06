@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804234805) do
+ActiveRecord::Schema.define(version: 20160806211909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attorney_comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "status"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_attorney_comments_on_document_id", using: :btree
+  end
+
+  create_table "client_comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "status"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_client_comments_on_document_id", using: :btree
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
@@ -49,6 +67,15 @@ ActiveRecord::Schema.define(version: 20160804234805) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "law_office_comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "status"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_law_office_comments_on_document_id", using: :btree
   end
 
   create_table "matters", force: :cascade do |t|
@@ -147,6 +174,9 @@ ActiveRecord::Schema.define(version: 20160804234805) do
     t.string   "last_name"
   end
 
+  add_foreign_key "attorney_comments", "documents"
+  add_foreign_key "client_comments", "documents"
+  add_foreign_key "law_office_comments", "documents"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "user_matters", "matters"
