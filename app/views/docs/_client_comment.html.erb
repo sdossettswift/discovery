@@ -1,0 +1,9 @@
+<h6>Client Comment:</h6>
+<%@doc.client_comments.each do |client_comment|%>
+  <%=client_comment.comment%>
+<%end%>
+<%= form_for([@matter, @matter.docs,  @doc.client_comments.build]) do |f| %>
+<%= f.label :comment%>
+ <%= f.text_area :comment %>
+    <%= f.submit %>
+<% end %>

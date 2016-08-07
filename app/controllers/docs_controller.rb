@@ -18,8 +18,18 @@ class DocsController < ApplicationController
       end
     end
 
+
+def edit
+  @doc = @matter.doc(document_params)
+end
     def update
-      @doc = Doc.find_by id: params[:id]
+      @docs = @matter.docs(document_params)
+      @doc = @matter.doc(:id)
+      if @doc.save
+        redirect_to matter_path(@matter), notice: "Document Updated"
+      else
+        render :edit
+      end
     end
 
     def index

@@ -6,6 +6,31 @@
 <h2>Users</h2>
 
 <h2>Documents</h2>
+<table class="mdl-data-table mdl-js-data-table">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Document ID</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @docs.each do |doc|%>
+      <tr>
+        <td><%=doc.id%> </td>
+        <td><%=doc.status%> </td>
+        <td><%=doc.date%></td>
+        <td><%=doc.title%></td>
+        <td><%=link_to 'Detail', matter_doc_path(@matter, doc.id)%></td>
+      </tr>
+    <%end%>
+    </tr>
+  </tbody>
+</table>
+
+
 <div class="mdl-layout__content">
   <div class="mdl-page-content">
     <%= render partial: 'doc_form'%>

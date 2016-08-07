@@ -36,6 +36,7 @@ end
 
   def show
     @matter = Matter.find(params[:id])
+    @docs = @matter.docs.all
 
   end
 

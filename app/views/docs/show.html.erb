@@ -1,5 +1,4 @@
 <h1><%= @doc.title%></h1>
-
 <table class="mdl-data-table mdl-js-data-table">
   <tr>
     <th>
@@ -32,4 +31,14 @@
 </table>
 
 
-<iframe src="<%= attachment_url(@doc, :doc, format: 'pdf') %>" width="600" height="800"></iframe>
+<iframe src="<%= attachment_url(@doc, :doc, format: 'pdf') %>" width="400px" height="600px"></iframe>
+
+<h5>Client Commment</h5>
+<%= render partial: 'client_comment'%>
+
+<div class="mdl-layout__content">
+  <div class="mdl-page-content">
+    <h5>Upload Document</h5>
+    <%= render partial: 'upload'%>
+  </div>
+</div>
