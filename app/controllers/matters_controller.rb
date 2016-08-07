@@ -26,7 +26,12 @@ class MattersController < ApplicationController
 
   def show
     @matter = Matter.find(params[:id])
-    @matter_events = @matter.matter_events.all
+    @events = @matter.events.all
+  end
+
+  def timeline
+    @matter = Matter.find(params[:id])
+    @events = @matter.events.all
   end
 
 

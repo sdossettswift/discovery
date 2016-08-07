@@ -11,5 +11,8 @@
 
 <h6>Add Event:</h6>
 
-<%= @matter.matter_events.each do |event|%>
-<%end%>
+<div class="mdl-layout__content">
+  <div class="mdl-page-content">
+    <%= render partial: 'event_form'%>
+  </div>
+</div>

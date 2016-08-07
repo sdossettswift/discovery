@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807081822) do
+ActiveRecord::Schema.define(version: 20160807091018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160807081822) do
     t.string   "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "matter_id"
   end
 
   create_table "firms", force: :cascade do |t|
@@ -83,26 +84,6 @@ ActiveRecord::Schema.define(version: 20160807081822) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["document_id"], name: "index_law_office_comments_on_document_id", using: :btree
-  end
-
-  create_table "matter_events", force: :cascade do |t|
-    t.integer  "matter_id"
-    t.string   "caption"
-    t.string   "credit"
-    t.string   "headline"
-    t.string   "text"
-    t.string   "url"
-    t.string   "thumbnail"
-    t.string   "year"
-    t.string   "month"
-    t.string   "day"
-    t.string   "hour"
-    t.string   "minute"
-    t.integer  "document_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["document_id"], name: "index_matter_events_on_document_id", using: :btree
-    t.index ["matter_id"], name: "index_matter_events_on_matter_id", using: :btree
   end
 
   create_table "matters", force: :cascade do |t|
@@ -230,8 +211,6 @@ ActiveRecord::Schema.define(version: 20160807081822) do
   add_foreign_key "client_comments", "documents"
   add_foreign_key "inventories", "matters"
   add_foreign_key "law_office_comments", "documents"
-  add_foreign_key "matter_events", "documents"
-  add_foreign_key "matter_events", "matters"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "people", "matters"

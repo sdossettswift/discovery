@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
 use_doorkeeper
-get 'matters/:id/timeline' => 'matter_events#timeline', as: :matter_timeline
-get 'events/timeline' => 'events#timeline', as: :timeline
+get 'matters/:id/timeline' => 'matters#timeline', as: :matter_timeline
 post 'api/registrations' => 'api/registrations#create'
 root 'dashboard#welcome'
 get 'dashboard' => 'dashboard#dashboard', as: :dashboard
@@ -15,7 +14,6 @@ get 'sign_out' => 'sessions#delete', as: :sign_out
 
 resources :roles
 resources :firm
-resources :events
 resources :user_matters
 resources :users
 
@@ -26,15 +24,13 @@ resources :documents do
 end
 
 resources :matters do
-  resources :matter_events
+  resources :events
   resources :people
 end
 
 namespace :api do
-  resources :events
-  resources :matter_events
   resources :matters do
-    resources :matter_events
+    resources :events
   end
 end
 

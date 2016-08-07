@@ -3,43 +3,42 @@ class EventsController < ApplicationController
     require_login!
   end
 
-  def new
-    @event = Event.new
-  end
 
-  def create
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to root_path, notice: "Event Created"
-    else
-      render :new
+    def new
+      @matter = Matter.find(params[:matter_id])
+      @event = @matter.events.create(event_params)
     end
-  end
 
-  def update
-    @event = Event.find_by id: params[:id]
-  end
 
-  def comment
-    @event = Event.find_by id: params[:id]
-  end
+    def create
+      @matter = Matter.find(params[:matter_id])
+      @event = @matter.events.create(event_params)
+      if @event.save
+        redirect_to matter_path(@matter), notice: "Event Added"
+      else
+        render :new
+      end
+    end
 
   def index
-    @events = Event.all
+    @matter = Matter.find(params[:matter_id])
+    @events = @matter.events.all
   end
 
   def show
-    @event = Event.find_by id: params[:id]
-
+    @matter = Matter.find(params[:matter_id])
+    @events = @matter.events.find(params[:id])
   end
 
-  def timeline
-    @events = Event.all
-  end
+    def timeline
+      @matter = Matter.find(params[:matter_id])
+      @events = @matter.events.all
+    end
+
 
   private
 
   def event_params
-    params.require(:event).permit(:caption, :credit, :day, :headline, :hour,  :minute, :month, :text, :thumbnail, :url, :date,  :user_ids => [] )
+    params.require(:event).permit(:caption, :minute, :year, :credit, :day, :headline, :hour,  :minute, :month, :text, :thumbnail, :url, :date,  :user_ids => [] )
   end
 end

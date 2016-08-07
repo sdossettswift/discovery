@@ -6,37 +6,32 @@ class Api::EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @matter = Matter.find(params[:matter_id])
+    @event = @matter.events.create(event_params)
   end
 
   def create
-    @event = Event.new
-    @event.headline = params[:event][:headline]
-    @event.text = params[:event][:text]
-    @event.year = params[:event][:year]
-    @event.month = params[:event][:month]
-    @event.day = params[:event][:day]
-    @event.hour = params[:event][:hour]
-    @event.minute = params[:event][:minute]
-    @event.caption = params[:event][:caption]
-    @event.credit = params[:event][:credit]
-    @event.thumbnail = params[:event][:thumbnail]
-    if @event.save
-        redirect_to root_path, notice: "Event Added!"
-    else render :new
-  end
-end
+    @matter = Matter.find_by(params[:matter_id])
+    @event = @matter.events.create(event_params)
+      if @event.save
+          redirect_to root_path, notice: "Event Added!"
+      else render :new
+      end
+    end
 
   def index
-    @events = Event.all
+    @matter = Matter.find(params[:matter_id])
+    @events = @matter.events.all
   end
 
   def show
-    @event = Event.find_by id: params[:id]
+    @matter = Matter.find_by(params[:matter_id])
+    @event = @matter.events.find_by id: params[:id]
   end
 
   def update
-   @event = Event.find_by id: params[:id]
+    @matter = Matter.find_by(params[:matter_id])
+   @event = @matter.events.find_by id: params[:id]
    @event.headline = params[:event][:headline]
    @event.text = params[:event][:text]
    @event.year = params[:event][:year]
@@ -60,5 +55,18 @@ end
    @event.destroy
    render json: {ok: true}, status: 200
  end
+
+
+def timeline
+  @matter = Matter.find_by(params[:matter_id])
+  @events = @matter.events.all
+end
+
+private
+
+def event_params
+  params.require(:event).permit(:caption, :credit, :year,:hour, :minute,  :day, :headline, :hour, :month, :text, :thumbnail, :url, :date,  :user_ids => [] )
+end
+
 
 end
