@@ -1,22 +1,22 @@
 class AttorneyCommentsController < ApplicationController
   def new
-    @document = Document.find(params[:document_id])
-    @attorney_comment = @document.attorney_comments.create(attorney_comment_params)
+    @doc = Doc.find(params[:doc_id])
+    @attorney_comment = @doc.attorney_comments.create(attorney_comment_params)
   end
 
   def create
-    @document = Document.find(params[:document_id])
-    @attorney_comment = @document.attorney_comments.create(attorney_comment_params)
+    @doc = Doc.find(params[:doc_id])
+    @attorney_comment = @doc.attorney_comments.create(attorney_comment_params)
     if @attorney_comment.save
-      redirect_to document_path(@document), notice: "Comment Added"
+      redirect_to doc_path(@doc), notice: "Comment Added"
     else
       render :new
     end
   end
 
   def index
-    @document = Document.find(params[:document_id])
-    @attorney_comments = @document.attorney_comments.all
+    @doc = Doc.find(params[:doc_id])
+    @attorney_comments = @doc.attorney_comments.all
   end
 
   private

@@ -1,0 +1,35 @@
+<h1><%= @doc.title%></h1>
+
+<table class="mdl-data-table mdl-js-data-table">
+  <tr>
+    <th>
+      Doc Id
+    </th>
+    <th>
+      Status
+    </th>
+    <th>
+      Date
+    </th>
+    <th>
+      Title
+    </th>
+  </tr>
+  <tr>
+    <th>
+    <%=@doc.id%>
+    </th>
+    <th>
+      <%=@doc.status%>
+    </th>
+    <th>
+      <%=@doc.date%>
+    </th>
+    <th>
+      <%=@doc.title%>
+    </th>
+  </tr>
+</table>
+
+
+<iframe src="<%= attachment_url(@doc, :doc, format: 'pdf') %>" width="600" height="800"></iframe>

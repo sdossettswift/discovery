@@ -12,7 +12,7 @@ class UserCanCreateDocumentTest < Capybara::Rails::TestCase
    fill_in('Username', :with => 'attorney1')
    fill_in('Password', :with => 'example')
    click_button('Sign In')
-    visit new_document_path
+    visit matter_path
     fill_in('Title', :with => 'Tax Return')
     fill_in('Status', :with => '1')
     fill_in('Description', :with => '2015 Tax Return')

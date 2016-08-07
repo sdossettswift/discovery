@@ -1,21 +1,21 @@
 class ClientCommentsController < ApplicationController
   def new
-    @document = Document.find(params[:document_id])
-    @client_comment = @document.client_comments.create(client_comment_params)
+    @doc = Doc.find(params[:doc_id])
+    @client_comment = @doc.client_comments.create(client_comment_params)
   end
 
   def create
-    @document = Document.find(params[:document_id])
-    @client_comment = @document.client_comments.create(client_comment_params)
+    @doc = Doc.find(params[:doc_id])
+    @client_comment = @doc.client_comments.create(client_comment_params)
     if @client_comment.save
-      redirect_to document_path(@document), notice: "Comment Added"
+      redirect_to doc_path(@doc), notice: "Comment Added"
     else
       render :new
     end
   end
 
   def index
-    @document = Document.find(params[:document_id])
+    @doc = Doc.find(params[:doc_id])
     @client_comments = ClientComment.all
   end
 

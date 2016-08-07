@@ -36,12 +36,11 @@ end
 
   def show
     @matter = Matter.find(params[:id])
-    @events = @matter.events.all
+
   end
 
   def timeline
     @matter = Matter.find(params[:id])
-    @events = @matter.events.all
   end
 
 

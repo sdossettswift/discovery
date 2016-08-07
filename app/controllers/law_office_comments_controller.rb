@@ -1,21 +1,21 @@
 class LawOfficeCommentsController < ApplicationController
     def new
-      @document = Document.find(params[:document_id])
-      @law_office_comment = @document.law_office_comments.create(law_office_comment_params)
+      @doc = Doc.find(params[:doc_id])
+      @law_office_comment = @doc.law_office_comments.create(law_office_comment_params)
     end
 
     def create
-      @document = Document.find(params[:document_id])
-      @law_office_comment = @document.law_office_comments.create(law_office_comment_params)
+      @doc = Doc.find(params[:doc_id])
+      @law_office_comment = @doc.law_office_comments.create(law_office_comment_params)
       if @law_office_comment.save
-        redirect_to document_path(@document), notice: "Comment Added"
+        redirect_to doc_path(@doc), notice: "Comment Added"
       else
         render :new
       end
     end
 
     def index
-      @document = Document.find(params[:document_id])
+      @doc = Doc.find(params[:doc_id])
       @law_office_comments = LawOfficeComment.all
     end
 

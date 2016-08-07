@@ -7,17 +7,16 @@
       <th>Date</th>
       <th>Title</th>
       <th>Link</th>
-
     </tr>
   </thead>
   <tbody>
-    <% @documents.each do |document|%>
+    <% @docs.each do |doc|%>
       <tr>
-        <td><%=document.id%> </td>
-        <td><%=document.status%> </td>
-        <td><%=document.date%></td>
-        <td><%=document.title%></td>
-        <td><%= link_to "See Detail", doc_path(id: doc.id)%></td>
+        <td><%=doc.id%> </td>
+        <td><%=doc.status%> </td>
+        <td><%=doc.date%></td>
+        <td><%=doc.title%></td>
+        <td><%=link_to 'Detail', matter_doc_path(id: doc.id)%></td>
       </tr>
     <%end%>
     </tr>
