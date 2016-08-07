@@ -15,6 +15,7 @@ class ClientCommentsController < ApplicationController
   end
 
   def index
+    @document = Document.find(params[:document_id])
     @client_comments = ClientComment.all
   end
 

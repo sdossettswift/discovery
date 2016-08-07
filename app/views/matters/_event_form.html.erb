@@ -1,0 +1,20 @@
+
+<%=form_for(@matter, @matter_events), url:matter_timeline_path  do |f| %>
+  <%= f.label :headline%>
+   <%= f.text_area :headline %> </br>
+   <%= f.label :text%>
+   <%= f.input :text %></br>
+   <%= f.label :year%>
+   <%= f.input :year %></br>
+   <%= f.label :month%>
+   <%= f.input :month%></br>
+   <%= f.label :day%>
+   <%= f.input :day %></br>
+   <%= f.label :hour%>
+   <%= f.input :hour %></br>
+   <%= f.label :caption%>
+   <%= f.input :caption %></br>
+   <%= f.label :url%>
+   <%= f.input :url %></br>
+    <%= f.submit %>
+<% end %>

@@ -1,0 +1,19 @@
+<% if @matter_event.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @matter_event.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<%= simple_form_for @matter_event do |f| %>
+  <%= f.input :headline %>
+  <%= f.input :text %>
+  <%= f.input :year %>
+  <%= f.input :month,collection:Event::MONTH %>
+  <%= f.input :day, collection:Event::DAY %>
+  <%= f.input :hour, collection:Event::HOUR %>
+  <%= f.input :caption %>
+  <%= f.input :url %>
+  <%= f.button :submit %>
+<% end %>

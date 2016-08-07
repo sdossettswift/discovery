@@ -18,6 +18,8 @@
   <%=attorney_comment.comment%>
 <%end%>
 <%= form_for([@document, @document.attorney_comments.build]) do |f| %>
+<%= f.label :attorney_comment%>
+
  <%= f.text_area :comment %>
     <%= f.submit %>
 <% end %>
@@ -28,6 +30,7 @@
   <%=law_office_comment.comment%>
 <%end%>
 <%= form_for([@document, @document.law_office_comments.build]) do |f| %>
+<%= f.label :law_office_comment%>
  <%= f.text_area :comment %>
     <%= f.submit %>
 <% end %>

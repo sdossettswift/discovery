@@ -15,7 +15,8 @@ class AttorneyCommentsController < ApplicationController
   end
 
   def index
-    @attorney_comments = AttorneyComment.all
+    @document = Document.find(params[:document_id])
+    @attorney_comments = @document.attorney_comments.all
   end
 
   private

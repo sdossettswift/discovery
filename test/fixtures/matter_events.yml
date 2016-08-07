@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  matter: one
+  caption: MyString
+  credit: MyString
+  headline: MyString
+  text: MyString
+  url: MyString
+  thumbnail: MyString
+  year: MyString
+  month: MyString
+  day: MyString
+  hour: MyString
+  minute: MyString
+  document: one
+
+two:
+  matter: two
+  caption: MyString
+  credit: MyString
+  headline: MyString
+  text: MyString
+  url: MyString
+  thumbnail: MyString
+  year: MyString
+  month: MyString
+  day: MyString
+  hour: MyString
+  minute: MyString
+  document: two

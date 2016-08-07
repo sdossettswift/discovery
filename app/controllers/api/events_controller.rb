@@ -1,5 +1,4 @@
 class Api::EventsController < ApplicationController
-  before_action :require_login!
   protect_from_forgery with: :null_session
 
   before_action do

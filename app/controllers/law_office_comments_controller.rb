@@ -15,6 +15,7 @@ class LawOfficeCommentsController < ApplicationController
     end
 
     def index
+      @document = Document.find(params[:document_id])
       @law_office_comments = LawOfficeComment.all
     end
 

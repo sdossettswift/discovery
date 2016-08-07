@@ -20,6 +20,16 @@ class MattersController < ApplicationController
   def update
   end
 
+  def index
+    @matters = Matter.all
+  end
+
+  def show
+    @matter = Matter.find(params[:id])
+    @matter_events = @matter.matter_events.all
+  end
+
+
   private
 
   def matter_params

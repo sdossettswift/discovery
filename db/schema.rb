@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806211909) do
+ActiveRecord::Schema.define(version: 20160807081511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,26 @@ ActiveRecord::Schema.define(version: 20160806211909) do
     t.index ["document_id"], name: "index_law_office_comments_on_document_id", using: :btree
   end
 
+  create_table "matter_events", force: :cascade do |t|
+    t.integer  "matter_id"
+    t.string   "caption"
+    t.string   "credit"
+    t.string   "headline"
+    t.string   "text"
+    t.string   "url"
+    t.string   "thumbnail"
+    t.string   "year"
+    t.string   "month"
+    t.string   "day"
+    t.string   "hour"
+    t.string   "minute"
+    t.integer  "document_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_matter_events_on_document_id", using: :btree
+    t.index ["matter_id"], name: "index_matter_events_on_matter_id", using: :btree
+  end
+
   create_table "matters", force: :cascade do |t|
     t.string   "kind"
     t.text     "description"
@@ -130,6 +150,31 @@ ActiveRecord::Schema.define(version: 20160806211909) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.integer  "gender"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "email"
+    t.integer  "matter_id"
+    t.text     "description"
+    t.boolean  "involved_in_suit"
+    t.boolean  "family"
+    t.string   "phone"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "nickname"
+    t.string   "relationship"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["matter_id"], name: "index_people_on_matter_id", using: :btree
+  end
+
   create_table "refile_attachments", force: :cascade do |t|
     t.integer  "oid",        null: false
     t.string   "namespace",  null: false
@@ -177,8 +222,11 @@ ActiveRecord::Schema.define(version: 20160806211909) do
   add_foreign_key "attorney_comments", "documents"
   add_foreign_key "client_comments", "documents"
   add_foreign_key "law_office_comments", "documents"
+  add_foreign_key "matter_events", "documents"
+  add_foreign_key "matter_events", "matters"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "people", "matters"
   add_foreign_key "user_matters", "matters"
   add_foreign_key "user_matters", "users"
 end
