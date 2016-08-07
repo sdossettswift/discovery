@@ -5,5 +5,5 @@ class Document < ApplicationRecord
   has_many :client_comments
   has_many :attorney_comments
   has_many :law_office_comments
-  belongs_to :matter_events
+  belongs_to :events
 end
