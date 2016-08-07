@@ -17,8 +17,18 @@ class MattersController < ApplicationController
     end
   end
 
-  def update
-  end
+  def edit
+     @matter = Matter.find(params[:id])
+   end
+
+def update
+  @matter = Matter.find(params[:id])
+  if @matter.update matter_params
+  redirect_to matter_path(id: @matter.id)
+    else
+      render :edit
+    end
+end
 
   def index
     @matters = Matter.all

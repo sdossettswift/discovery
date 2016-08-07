@@ -20,10 +20,6 @@ end
   end
 
   def client_dashboard
-    @users = User.all 
-    @matters = Matter.all
-    @user_matters = UserMatter.all
-    @roles = Role.all
-    @documents = Document.all
+    @matter = Matter.find(params[:id])
   end
 end

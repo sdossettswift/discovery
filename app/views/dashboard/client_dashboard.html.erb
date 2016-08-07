@@ -1,0 +1,32 @@
+<h1>Dashboard</h1>
+
+
+<h3>Events </h3>
+<h3>Inventory</h3>
+<h3>People </h3>
+
+<h3>All Documents </h3>
+<table class="mdl-data-table mdl-js-data-table">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Document ID</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Link</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @matter.documents do |document|%>
+      <tr>
+        <td><%=document.id%> </td>
+        <td><%=document.status%> </td>
+        <td><%=document.date%></td>
+        <td><%=document.title%></td>
+        <td><%= link_to "See Detail", document_path(id: document.id) %></td>
+      </tr>
+    <%end%>
+    </tr>
+  </tbody>
+</table>

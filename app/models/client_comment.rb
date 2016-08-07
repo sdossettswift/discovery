@@ -1,3 +1,3 @@
 class ClientComment < ApplicationRecord
-  belongs_to :document
+  belongs_to :doc
 end
