@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807081511) do
+ActiveRecord::Schema.define(version: 20160807081822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(version: 20160807081511) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer  "matter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["matter_id"], name: "index_inventories_on_matter_id", using: :btree
   end
 
   create_table "law_office_comments", force: :cascade do |t|
@@ -221,6 +228,7 @@ ActiveRecord::Schema.define(version: 20160807081511) do
 
   add_foreign_key "attorney_comments", "documents"
   add_foreign_key "client_comments", "documents"
+  add_foreign_key "inventories", "matters"
   add_foreign_key "law_office_comments", "documents"
   add_foreign_key "matter_events", "documents"
   add_foreign_key "matter_events", "matters"
